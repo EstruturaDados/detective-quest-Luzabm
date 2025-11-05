@@ -8,9 +8,7 @@
 // Use as instruções de cada região para desenvolver o sistema completo com árvore binária, árvore de busca e tabela hash.
 
 
-// ===================================================
 // 🌱 Nível Novato: Mapa da Mansão com Árvore Binária
-// ===================================================
 //
 // - Crie uma struct Sala com nome, e dois ponteiros: esquerda e direita.
 // - Use funções como criarSala(), conectarSalas() e explorarSalas().
@@ -27,10 +25,7 @@ typedef struct Sala {
 } Sala;
 
 
-// ===================================================
 // 🔍 Nível Aventureiro: Armazenamento de Pistas com Árvore de Busca
-// ===================================================
-//
 // - Crie uma struct Pista com campo texto (string).
 // - Crie uma árvore binária de busca (BST) para inserir as pistas coletadas.
 // - Ao visitar salas específicas, adicione pistas automaticamente com inserirBST().
@@ -48,10 +43,8 @@ typedef struct Pista {
 } Pista;
 
 
-// ---------------------------------------------------
 // Função: criarSala()
 // Cria uma sala dinamicamente com nome informado.
-// ---------------------------------------------------
 Sala* criarSala(const char* nome) {
     Sala* nova = (Sala*) malloc(sizeof(Sala));
     if (!nova) {
@@ -64,20 +57,16 @@ Sala* criarSala(const char* nome) {
     return nova;
 }
 
-// ---------------------------------------------------
 // Função: conectarSalas()
 // Conecta uma sala principal a duas outras (esquerda e direita).
-// ---------------------------------------------------
 void conectarSalas(Sala* principal, Sala* esquerda, Sala* direita) {
     if (principal == NULL) return;
     principal->esquerda = esquerda;
     principal->direita = direita;
 }
 
-// ---------------------------------------------------
 // Função: criarPista()
 // Cria dinamicamente uma nova pista com o texto informado.
-// ---------------------------------------------------
 Pista* criarPista(const char* texto) {
     Pista* nova = (Pista*) malloc(sizeof(Pista));
     if (!nova) {
@@ -106,10 +95,8 @@ Pista* inserirPista(Pista* raiz, const char* texto) {
     return raiz;
 }
 
-// ---------------------------------------------------
 // Função: listarPistas()
 // Exibe todas as pistas em ordem alfabética (em ordem).
-// ---------------------------------------------------
 void listarPistas(Pista* raiz) {
     if (raiz == NULL) return;
     listarPistas(raiz->esquerda);
@@ -117,10 +104,8 @@ void listarPistas(Pista* raiz) {
     listarPistas(raiz->direita);
 }
 
-// ---------------------------------------------------
 // Função: liberarPistas()
 // Libera memória da árvore de pistas.
-// ---------------------------------------------------
 void liberarPistas(Pista* raiz) {
     if (raiz == NULL) return;
     liberarPistas(raiz->esquerda);
@@ -128,10 +113,8 @@ void liberarPistas(Pista* raiz) {
     free(raiz);
 }
 
-// ---------------------------------------------------
 // Função: explorarSalas()
 // Permite explorar a mansão e coletar pistas automaticamente.
-// ---------------------------------------------------
 void explorarSalas(Sala* atual, Pista** arvorePistas) {
     char opcao;
 
@@ -186,10 +169,8 @@ void explorarSalas(Sala* atual, Pista** arvorePistas) {
     }
 }
 
-// ---------------------------------------------------
 // Função: liberarArvore()
 // Libera memória de todas as salas da mansão.
-// ---------------------------------------------------
 void liberarArvore(Sala* raiz) {
     if (raiz == NULL) return;
     liberarArvore(raiz->esquerda);
@@ -197,10 +178,8 @@ void liberarArvore(Sala* raiz) {
     free(raiz);
 }
 
-// ---------------------------------------------------
 // Função: main()
 // Monta o mapa, inicia a exploração e exibe as pistas.
-// ---------------------------------------------------
 int main() {
 
     // Criação das salas
