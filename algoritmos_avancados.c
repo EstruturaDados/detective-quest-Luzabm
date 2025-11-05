@@ -7,10 +7,8 @@
 // Este código inicial serve como base para o desenvolvimento das estruturas de navegação, pistas e suspeitos.
 // Use as instruções de cada região para desenvolver o sistema completo com árvore binária, árvore de busca e tabela hash.
 
-// ===================================================
 // 🌱 Nível Novato: Mapa da Mansão com Árvore Binária
-// ===================================================
-//
+
 // - Cria uma struct Sala com nome e ponteiros para a esquerda e direita.
 // - As funções criarSala(), conectarSalas() e explorarSalas() constroem e exploram o mapa.
 // - A navegação é feita por escolhas: esquerda (e), direita (d) ou sair (s).
@@ -25,10 +23,8 @@ typedef struct Sala {
     struct Sala* direita;
 } Sala;
 
-// ---------------------------------------------------
 // Função: criarSala()
 // Cria uma nova sala dinamicamente e retorna seu ponteiro.
-// ---------------------------------------------------
 Sala* criarSala(const char* nome) {
     Sala* nova = (Sala*) malloc(sizeof(Sala));
     if (nova == NULL) {
@@ -41,20 +37,16 @@ Sala* criarSala(const char* nome) {
     return nova;
 }
 
-// ---------------------------------------------------
 // Função: conectarSalas()
 // Conecta uma sala principal a duas outras (esquerda e direita).
-// ---------------------------------------------------
 void conectarSalas(Sala* principal, Sala* esquerda, Sala* direita) {
     if (principal == NULL) return;
     principal->esquerda = esquerda;
     principal->direita = direita;
 }
 
-// ---------------------------------------------------
 // Função: explorarSalas()
 // Permite que o jogador explore a mansão interativamente.
-// ---------------------------------------------------
 void explorarSalas(Sala* atual) {
     char opcao;
 
@@ -91,10 +83,8 @@ void explorarSalas(Sala* atual) {
     }
 }
 
-// ---------------------------------------------------
 // Função: liberarArvore()
 // Libera a memória de todas as salas recursivamente.
-// ---------------------------------------------------
 void liberarArvore(Sala* raiz) {
     if (raiz == NULL) return;
     liberarArvore(raiz->esquerda);
@@ -102,10 +92,8 @@ void liberarArvore(Sala* raiz) {
     free(raiz);
 }
 
-// ---------------------------------------------------
 // Função: main()
 // Monta o mapa da mansão e inicia o jogo.
-// ---------------------------------------------------
 int main() {
 
     // Criação das salas principais
